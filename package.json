@@ -1,22 +1,19 @@
 {
   "name": "poc_bmad",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Chatbot MCP Lab - MCP experimentation tool for developers",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\"",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "build": "pnpm --filter frontend build && pnpm --filter backend build",
+    "test": "pnpm -r test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/olivier-chatelin/poc-bmad-method.git"
-  },
-  "author": "",
+  "keywords": ["mcp", "chatbot", "llm", "developer-tools"],
+  "author": "Olivier",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/olivier-chatelin/poc-bmad-method/issues"
-  },
-  "homepage": "https://github.com/olivier-chatelin/poc-bmad-method#readme",
   "devDependencies": {
-    "bmad-method": "^4.44.3"
+    "concurrently": "^8.2.2"
   }
 }

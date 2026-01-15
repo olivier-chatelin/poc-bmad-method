@@ -41,8 +41,8 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: Environnement de Développement Fonctionnel
-  epic-1: backlog
-  1-1-initialisation-monorepo-et-structure-projet: backlog
+  epic-1: in-progress
+  1-1-initialisation-monorepo-et-structure-projet: review
   1-2-setup-frontend-avec-vite-react-et-tailwind: backlog
   1-3-setup-backend-avec-express-et-typescript: backlog
   1-4-layout-principal-50-50-chat-observability: backlog
