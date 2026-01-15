@@ -32,9 +32,10 @@
 }
 
 .dark {
-  --background: hsl(222.2 84% 4.9%);
+  /* Slate 900 background per AC#4: #0f172a */
+  --background: hsl(222.2 47.4% 11.2%);
   --foreground: hsl(210 40% 98%);
-  --card: hsl(222.2 84% 4.9%);
+  --card: hsl(222.2 47.4% 11.2%);
   --card-foreground: hsl(210 40% 98%);
   --popover: hsl(222.2 84% 4.9%);
   --popover-foreground: hsl(210 40% 98%);
@@ -60,6 +61,10 @@
 }
 
 @theme inline {
+  /* Typography - Inter for UI, Fira Code for code/logs */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
