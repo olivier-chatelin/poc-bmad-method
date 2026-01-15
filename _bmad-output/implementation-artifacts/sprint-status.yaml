@@ -1,0 +1,123 @@
+# generated: 2026-01-15
+# project: poc_bmad
+# project_key: chatbot-mcp-lab
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-01-15
+project: poc_bmad
+project_key: chatbot-mcp-lab
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Environnement de Développement Fonctionnel
+  epic-1: backlog
+  1-1-initialisation-monorepo-et-structure-projet: backlog
+  1-2-setup-frontend-avec-vite-react-et-tailwind: backlog
+  1-3-setup-backend-avec-express-et-typescript: backlog
+  1-4-layout-principal-50-50-chat-observability: backlog
+  1-5-configuration-environment-et-messages-erreur: backlog
+  1-6-readme-et-documentation-setup: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Connexion et Gestion MCP
+  epic-2: backlog
+  2-1-formulaire-de-configuration-mcp: backlog
+  2-2-connexion-mcp-et-validation-statut: backlog
+  2-3-affichage-des-tools-mcp-disponibles: backlog
+  2-4-deconnexion-mcp: backlog
+  2-5-persistence-configuration-mcp-localstorage: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Observabilité Pipeline en Temps Réel
+  epic-3: backlog
+  3-1-infrastructure-socket-io-pour-communication-temps-reel: backlog
+  3-2-configuration-logger-pino-avec-streaming: backlog
+  3-3-composant-observabilitypanel-avec-timeline: backlog
+  3-4-affichage-detaille-des-logs-avec-expand-collapse: backlog
+  3-5-tracing-pipeline-avec-timestamps: backlog
+  3-6-identification-et-affichage-des-erreurs: backlog
+  3-7-filtrage-des-logs-par-niveau: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Adapter LLM et Transformation
+  epic-4: backlog
+  4-1-definition-du-canonical-format-interfaces-typescript: backlog
+  4-2-transformer-mcp-tools-vers-canonical-format: backlog
+  4-3-transformer-canonical-vers-gpt-4o-function-format: backlog
+  4-4-interface-strategy-pattern-llmstrategy: backlog
+  4-5-implementation-gpt4ostrategy: backlog
+  4-6-factory-pattern-pour-creation-adapter: backlog
+  4-7-gestion-des-erreurs-de-transformation: backlog
+  4-8-affichage-llm-strategy-active: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Interface Chat et Conversation
+  epic-5: backlog
+  5-1-composant-chatinterface-avec-zustand-store: backlog
+  5-2-envoi-de-messages-texte: backlog
+  5-3-affichage-des-reponses-llm-formatees: backlog
+  5-4-indicateurs-de-chargement: backlog
+  5-5-contexte-conversationnel-multi-tour: backlog
+  5-6-historique-de-conversation-et-navigation: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Exécution Tools MCP
+  epic-6: backlog
+  6-1-client-mcp-avec-transport-stdio: backlog
+  6-2-execution-des-tools-mcp: backlog
+  6-3-gestion-des-reponses-mcp: backlog
+  6-4-retry-logic-pour-echecs-mcp: backlog
+  6-5-affichage-tools-mcp-dans-observability: backlog
+  6-6-gestion-des-erreurs-mcp-vers-llm: backlog
+  epic-6-retrospective: optional
+
+  # Epic 7: Monitoring Santé et Métriques
+  epic-7: backlog
+  7-1-affichage-statut-sante-mcp: backlog
+  7-2-detection-et-notification-deconnexions-mcp: backlog
+  7-3-metriques-basiques-temps-reponse-compteurs: backlog
+  7-4-graceful-degradation-sans-mcp: backlog
+  7-5-redemarrage-propre-sans-state-corrompu: backlog
+  7-6-compatibilite-navigateurs-chrome-edge-firefox: backlog
+  epic-7-retrospective: optional
+
+  # Epic 8: Qualité et Validation BMAD (S4)
+  epic-8: backlog
+  8-1-tests-unitaires-transformers: backlog
+  8-2-tests-integration-strategy-pattern: backlog
+  8-3-tests-composants-react: backlog
+  8-4-couverture-de-code-70-globale: backlog
+  8-5-documentation-adrs: backlog
+  8-6-documentation-canonical-format: backlog
+  epic-8-retrospective: optional
