@@ -6,6 +6,8 @@ dist/
 build/
 
 # Environment variables (NFR11 - Security)
+# .env files contain secrets and MUST be excluded from version control
+# .env.example is intentionally NOT excluded - it should be committed
 .env
 .env.local
 .env.*.local

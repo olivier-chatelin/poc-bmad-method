@@ -1,12 +1,14 @@
-import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import http from 'http';
 import { Server as SocketIOServer } from 'socket.io';
+import { loadConfig, type Config } from './config/index.js';
+import { createConfigRouter } from './routes/config.routes.js';
+
+// Load and validate configuration (Story 1.5)
+const config: Config = loadConfig();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 
 // Create HTTP server from Express app (required for Socket.io)
 const server = http.createServer(app);
@@ -14,7 +16,7 @@ const server = http.createServer(app);
 // Initialize Socket.io with CORS matching Express CORS
 const io = new SocketIOServer(server, {
   cors: {
-    origin: FRONTEND_URL,
+    origin: config.frontendUrl,
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -22,15 +24,19 @@ const io = new SocketIOServer(server, {
 
 // Middleware
 app.use(cors({
-  origin: FRONTEND_URL,
+  origin: config.frontendUrl,
   credentials: true,
 }));
 app.use(express.json());
 
+// Routes
 // Health check endpoint (AC#4: returns { status: "ok" })
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
+
+// Configuration status endpoint (Story 1.5)
+app.use('/api/config', createConfigRouter(config));
 
 // Socket.io: Observability namespace (placeholder for Story 3.1)
 const observabilityNamespace = io.of('/observability');
@@ -43,12 +49,7 @@ observabilityNamespace.on('connection', (socket) => {
   });
 });
 
-// Log configuration at startup (without secrets)
-console.log('=== Backend Configuration ===');
-console.log(`  PORT: ${PORT}`);
-console.log(`  FRONTEND_URL: ${FRONTEND_URL}`);
-console.log(`  OPENAI_API_KEY: ${process.env.OPENAI_API_KEY ? '***configured***' : 'NOT SET'}`);
-console.log('=============================');
+// Configuration logging is now handled by loadConfig() in config/env.ts
 
 // Graceful shutdown handling (NFR17)
 const gracefulShutdown = (signal: string) => {
@@ -76,8 +77,8 @@ process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 // Start server (use server.listen for Socket.io, not app.listen)
-server.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/api/health`);
+server.listen(config.port, () => {
+  console.log(`Backend server running on http://localhost:${config.port}`);
+  console.log(`Health check: http://localhost:${config.port}/api/health`);
   console.log(`Socket.io: WebSocket server ready`);
 });

@@ -46,7 +46,7 @@ development_status:
   1-2-setup-frontend-avec-vite-react-et-tailwind: done
   1-3-setup-backend-avec-express-et-typescript: done
   1-4-layout-principal-50-50-chat-observability: done
-  1-5-configuration-environment-et-messages-erreur: backlog
+  1-5-configuration-environment-et-messages-erreur: done  # Code review: 8 issues fixed (3 HIGH, 5 MEDIUM) - 2026-01-17
   1-6-readme-et-documentation-setup: backlog
   epic-1-retrospective: optional
 
